@@ -1,6 +1,11 @@
 
+
 <div align="center">
-  <img src="img/logo.png" width="420" alt="uwuAOSP Logo">
+  <img src="./img/logo.png" width="800" alt="uwuAOSP Logo">
+
+  <h1>uwuAOSP 17.140</h1>
+  <h3>Android 17 | GMS Included</h3>
+</div>
 
   <h1>uwuAOSP 17.140</h1>
   <h3>Android 17 | GMS Included</h3>
@@ -79,7 +84,7 @@
 
 <p align="center">
   <img src="img/setting.png" width="30%" alt="Settings">
-  <img src="img/settings.png.png" width="30%" alt="System Settings">
+  <img src="img/settings.png" width="30%" alt="System Settings">
   <img src="img/update.png" width="30%" alt="System Update">
 </p>
 
@@ -103,6 +108,21 @@
 
 ---
 
-<div align="center">
-  <sub>Made with ❤️ for the Android community.</sub>
-</div>
+
+---
+
+<h2 align="center">Credits</h2>
+
+<p align="center">
+  Special thanks to <b>AdarshGrewal</b> &amp; all onyx maintainers
+  for their contributions and support.
+</p>
+
+<p align="center">
+  Made with ❤️ for the Android community.
+</p>
+
+<p align="center">
+  <b>Powered by xiaoiaox</b>
+</p>
+
