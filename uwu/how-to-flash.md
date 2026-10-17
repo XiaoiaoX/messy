@@ -1,15 +1,16 @@
-# Evolution X 17.0 for POCO F7 (onyx)
+![img](img/logo.png)
+# uwuAOSP for POCO F7/REDMI Tubro 4 Pro (onyx)
 
 **Installation and Update Guide**
 
-This guide explains how to install Evolution X 17.0 (Android 17) on the POCO F7 (`onyx`), including clean installation and updating from a previous build.
+This guide explains how to install uwuAOSP (Android 17) on the `onyx` , including clean installation and updating from a previous build.
 
 > [!WARNING]
 > **Flashing custom firmware involves risks.**
 >
 > - Back up all important data before proceeding.
 > - Unlocking the bootloader and formatting data will erase user data.
-> - Make sure your device is **POCO F7 (onyx)**.
+> - Make sure your device is **POCO F7/REDMI Tubro 4 Pro (onyx)**.
 > - Use only the images and ROM package provided for the same build.
 > - Follow the instructions carefully. Incorrect flashing may result in boot failures or data loss.
 
@@ -17,8 +18,8 @@ This guide explains how to install Evolution X 17.0 (Android 17) on the POCO F7 
 
 Before installation, make sure you have:
 
-- POCO F7 (`onyx`) with an unlocked bootloader.
-- The latest supported stable **HyperOS Global firmware (OS3.0.x)**.
+- A device that has already unlocked the bootloader
+- Please prioritize using HyperOS firmware (OS3.0.305)
 - A Windows, Linux, or macOS computer.
 - The latest [Android SDK Platform-Tools](https://developer.android.com/tools/releases/platform-tools).
 - A working USB cable.
@@ -33,14 +34,14 @@ Download the following files from the same build directory:
 
 | File | Purpose |
 |---|---|
-| `EvolutionX-17.0-<date>-onyx-12.3-Unofficial-<hash>.zip` | ROM installation package |
-| `boot-<date>.img` | Boot image |
-| `dtbo-<date>.img` | Device Tree Overlay |
-| `init_boot-<date>.img` | Init boot image |
-| `vendor_boot-<date>.img` | Vendor boot image |
-| `recovery-<date>.img` | Recovery image |
+| `uwuAOSP-version-date-onyx-sigined.zip` | ROM installation package |
+| `boot.img` | Boot image |
+| `dtbo.img` | Device Tree Overlay |
+| `init_boot.img` | Init boot image |
+| `vendor_boot.img` | Vendor boot image |
+| `recovery.img` | Recovery image |
 
-Replace `<date>` and `<hash>` with the actual values from your downloaded build.
+If you have already flashed other custom ROM before this, you can directly flash recovery.img and skip to continue here
 
 **Important:** Never mix images from different builds unless the maintainer explicitly confirms compatibility.
 
@@ -48,9 +49,9 @@ Replace `<date>` and `<hash>` with the actual values from your downloaded build.
 
 A clean installation is required when:
 
-- Installing Evolution X for the first time.
+- Installing uwuAOSP for the first time.
 - Switching from another custom ROM.
-- Switching from another maintainer's Evolution X build.
+- Switching from another maintainer's uwuAOSP build.
 - The maintainer explicitly requires a clean flash.
 
 ### Step 1 — Enter Fastboot Mode
@@ -74,11 +75,11 @@ Open a terminal in the directory containing the downloaded files.
 Execute the following commands, replacing `<date>` with your build date:
 
 ```bash
-fastboot flash boot boot-<date>.img
-fastboot flash dtbo dtbo-<date>.img
-fastboot flash init_boot init_boot-<date>.img
-fastboot flash vendor_boot vendor_boot-<date>.img
-fastboot flash recovery recovery-<date>.img
+fastboot flash boot boot.img
+fastboot flash dtbo dtbo.img
+fastboot flash init_boot init_boot.img
+fastboot flash vendor_boot vendor_boot.img
+fastboot flash recovery recovery.img
 ```
 
 Wait for each command to finish successfully before continuing.
@@ -116,8 +117,7 @@ In Evolution X Recovery:
 >
 > Formatting data is required for a clean installation and may be necessary to initialize the data partition correctly.
 
-### Step 5 — Install Evolution X
-
+### Step 5 — Install ROM
 Return to the recovery main menu.
 
 Select:
@@ -127,7 +127,7 @@ Select:
 On your computer, execute:
 
 ```bash
-adb sideload EvolutionX-17.0-<date>-onyx-12.3-Unofficial-<hash>.zip
+adb sideload ROM_PACK.zip
 ```
 
 Wait for the installation to finish.
@@ -147,22 +147,13 @@ After installation completes successfully:
 
 The first boot may take longer than usual.
 
-**Congratulations! Evolution X should now be installed.**
+**Congratulations! uwuAOSP should now be installed.**
 
 ---
 
 ## 4. Updating from a Previous Build
 
-If you are already running an earlier Evolution X build maintained by the same developer, you may be able to update without formatting data.
-
-### Local Update
-
-1. Download the latest ROM ZIP.
-2. Open **Settings → System → Updater**.
-3. Select **Local update**, if available.
-4. Choose the downloaded ZIP file.
-5. Follow the on-screen instructions.
-6. Reboot when prompted.
+If you are already running an earlier build maintained by the same developer, you may be able to update without formatting data.
 
 > [!IMPORTANT]
 > Local updates are supported only when the installed updater and build configuration allow them.
@@ -228,7 +219,7 @@ If the problem persists, collect recovery logs or relevant error messages before
 
 ## 7. Important Notes
 
-- This is an **unofficial Evolution X build**.
+- This is an **uwuAOSP build**.
 - Only install packages intended for `onyx`.
 - Do not relock the bootloader while running an unofficial custom ROM.
 - Keep a backup of important data before updating.
@@ -236,4 +227,4 @@ If the problem persists, collect recovery logs or relevant error messages before
 
 ---
 
-**Enjoy Evolution X 17.0 on your POCO F7!**
+**Enjoy uwuAOSP on your device!**
