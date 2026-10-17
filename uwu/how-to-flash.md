@@ -1,49 +1,79 @@
-![img](img/logo.png)
-# uwuAOSP for POCO F7/REDMI Tubro 4 Pro (onyx)
 
-**Installation and Update Guide**
+<p align="center">
+  <img src="img/logo.png" width="800" alt="uwuAOSP Logo">
+</p>
 
-This guide explains how to install uwuAOSP (Android 17) on the `onyx` , including clean installation and updating from a previous build.
+<h1 align="center">uwuAOSP for POCO F7 / Redmi Turbo 4 Pro (onyx)</h1>
+
+<p align="center">
+  <b>Android 17 | Installation & Update Guide</b>
+</p>
+
+<p align="center">
+  <a href="#1-requirements">Requirements</a> •
+  <a href="#2-download-required-files">Downloads</a> •
+  <a href="#3-clean-installation">Installation</a> •
+  <a href="#4-updating-from-a-previous-build">Updates</a> •
+  <a href="#6-troubleshooting">Troubleshooting</a>
+</p>
+
+---
+
+## Introduction
+
+This guide explains how to install uwuAOSP (Android 17) on the POCO F7 and Redmi Turbo 4 Pro (`onyx`), including clean installation and updating from a previous build.
 
 > [!WARNING]
 > **Flashing custom firmware involves risks.**
 >
 > - Back up all important data before proceeding.
 > - Unlocking the bootloader and formatting data will erase user data.
-> - Make sure your device is **POCO F7/REDMI Tubro 4 Pro (onyx)**.
-> - Use only the images and ROM package provided for the same build.
-> - Follow the instructions carefully. Incorrect flashing may result in boot failures or data loss.
+> - Make sure your device is **POCO F7 / Redmi Turbo 4 Pro (onyx)**.
+> - Use only images and ROM packages provided for the same build.
+> - Incorrect flashing may result in boot failures or data loss.
+> - Proceed at your own risk.
+
+---
 
 ## 1. Requirements
 
 Before installation, make sure you have:
 
-- A device that has already unlocked the bootloader
-- Please prioritize using HyperOS firmware (OS3.0.305)
+- A POCO F7 or Redmi Turbo 4 Pro (`onyx`) with an unlocked bootloader.
+- **HyperOS firmware OS3.0.305** (recommended).
 - A Windows, Linux, or macOS computer.
 - The latest [Android SDK Platform-Tools](https://developer.android.com/tools/releases/platform-tools).
 - A working USB cable.
 - At least 50% battery charge.
 - A complete backup of your important data.
 
-**Google Apps (GApps) are already included.** Do not flash an additional GApps package unless explicitly instructed by the maintainer.
+> [!NOTE]
+> **Google Mobile Services (GMS) are already included.**
+>
+> You do not need to install a separate GApps package.
+
+---
 
 ## 2. Download Required Files
 
-Download the following files from the same build directory:
+Download all required files from the same build directory.
 
-| File | Purpose |
+| File | Description |
 |---|---|
-| `uwuAOSP-version-date-onyx-sigined.zip` | ROM installation package |
+| `uwuAOSP-version-date-onyx-signed.zip` | ROM installation package |
 | `boot.img` | Boot image |
 | `dtbo.img` | Device Tree Overlay |
 | `init_boot.img` | Init boot image |
 | `vendor_boot.img` | Vendor boot image |
 | `recovery.img` | Recovery image |
 
-If you have already flashed other custom ROM before this, you can directly flash recovery.img and skip to continue here
+> [!IMPORTANT]
+> - Use only files from the same build.
+> - Do not mix images from different ROMs or releases.
+> - Replace the example ROM ZIP filename with the actual downloaded filename.
+> - Flash all required images unless the maintainer explicitly provides alternative instructions.
 
-**Important:** Never mix images from different builds unless the maintainer explicitly confirms compatibility.
+---
 
 ## 3. Clean Installation
 
@@ -51,7 +81,7 @@ A clean installation is required when:
 
 - Installing uwuAOSP for the first time.
 - Switching from another custom ROM.
-- Switching from another maintainer's uwuAOSP build.
+- Switching from another maintainer's build.
 - The maintainer explicitly requires a clean flash.
 
 ### Step 1 — Enter Fastboot Mode
@@ -68,11 +98,13 @@ fastboot devices
 
 Your device's serial number should appear.
 
+If no device is detected, check your USB connection and drivers before proceeding.
+
 ### Step 2 — Flash Required Images
 
-Open a terminal in the directory containing the downloaded files.
+Open a terminal in the directory containing the downloaded images.
 
-Execute the following commands, replacing `<date>` with your build date:
+Execute the following commands:
 
 ```bash
 fastboot flash boot boot.img
@@ -82,30 +114,37 @@ fastboot flash vendor_boot vendor_boot.img
 fastboot flash recovery recovery.img
 ```
 
-Wait for each command to finish successfully before continuing.
+Wait for each command to complete successfully before continuing.
 
-**Do not reboot into the existing system at this stage.**
+> [!IMPORTANT]
+> Do not reboot into the existing system at this stage.
+>
+> If any flashing command fails, stop and investigate the error before proceeding.
 
 ### Step 3 — Boot into Recovery
 
-Reboot directly into recovery if your Fastboot implementation supports it:
+After flashing the required images, reboot into recovery.
+
+If supported by your Fastboot implementation:
 
 ```bash
 fastboot reboot recovery
 ```
 
-If the command is unsupported, use the device's hardware-key method to enter recovery.
+If this command is unsupported, use the hardware buttons to enter recovery:
 
-1. Disconnect the USB cable if necessary.
-2. Power off the device.
-3. Hold **Volume Up + Power**.
-4. Release the buttons when recovery starts.
+1. Power off the device.
+2. Hold **Volume Up + Power**.
+3. Release the buttons when recovery starts.
 
-> Recovery navigation depends on the recovery implementation. If touch input is unavailable, try using the volume buttons to navigate and the power button to confirm.
+> [!NOTE]
+> Recovery navigation depends on the recovery implementation.
+>
+> If touch input is unavailable, try using the volume buttons to navigate and the power button to confirm.
 
 ### Step 4 — Format Data
 
-In Evolution X Recovery:
+In the recovery menu:
 
 1. Select **Factory Reset**.
 2. Select **Format data / factory reset**.
@@ -113,11 +152,16 @@ In Evolution X Recovery:
 4. Wait until formatting completes.
 
 > [!CAUTION]
-> **This step permanently erases user data, including files stored in internal storage.**
+> **This operation permanently erases user data.**
 >
-> Formatting data is required for a clean installation and may be necessary to initialize the data partition correctly.
+> All installed apps, settings, and files stored in internal storage will be deleted.
+>
+> Make sure you have backed up your important data before continuing.
 
-### Step 5 — Install ROM
+Formatting data is required for a clean installation.
+
+### Step 5 — Install uwuAOSP
+
 Return to the recovery main menu.
 
 Select:
@@ -130,14 +174,24 @@ On your computer, execute:
 adb sideload ROM_PACK.zip
 ```
 
-Wait for the installation to finish.
+Replace `ROM_PACK.zip` with the actual filename of your downloaded uwuAOSP package.
+
+For example:
+
+```bash
+adb sideload uwuAOSP-version-date-onyx-signed.zip
+```
+
+Wait for the installation to complete.
 
 > [!NOTE]
-> The progress indicator on your computer may stop at approximately **47%**. This can be normal for ADB sideload.
+> The ADB sideload progress indicator on your computer may stop at approximately **47%**.
 >
-> Check the recovery screen to confirm whether installation succeeded. Do not assume that every stop at 47% indicates success.
+> This can be normal behavior.
+>
+> Always check the recovery screen to confirm that installation completed successfully.
 
-### Step 6 — Reboot
+### Step 6 — Reboot to System
 
 After installation completes successfully:
 
@@ -147,20 +201,39 @@ After installation completes successfully:
 
 The first boot may take longer than usual.
 
-**Congratulations! uwuAOSP should now be installed.**
+**Congratulations! uwuAOSP is now installed on your device!**
 
 ---
 
 ## 4. Updating from a Previous Build
 
-If you are already running an earlier build maintained by the same developer, you may be able to update without formatting data.
+If you are already running an earlier uwuAOSP build maintained by the same developer, you may be able to update without formatting user data.
+
+### Before Updating
+
+- Back up your important data.
+- Download the latest compatible uwuAOSP package.
+- Read the changelog for build-specific instructions.
+- Make sure the update is intended for your device.
+
+### Local Update
+
+If your installed build supports local updates:
+
+1. Open **Settings → System → Updater**.
+2. Select **Local Update**.
+3. Choose the downloaded ROM ZIP.
+4. Follow the on-screen instructions.
+5. Reboot when prompted.
 
 > [!IMPORTANT]
-> Local updates are supported only when the installed updater and build configuration allow them.
+> Local updates require a compatible updater and build configuration.
 >
-> Do not assume that builds from different maintainers are compatible with dirty flashing.
+> Do not assume that builds from different maintainers support dirty flashing.
 >
-> Always follow any build-specific update instructions provided by the maintainer.
+> If local updating is unavailable, follow the update instructions provided with the release.
+>
+> Do not format data during a supported dirty-flash update unless explicitly instructed.
 
 ---
 
@@ -168,63 +241,111 @@ If you are already running an earlier build maintained by the same developer, yo
 
 If a `SHA256SUMS` file is provided, verify the downloaded files before flashing.
 
-On Linux or macOS with compatible checksum utilities:
+### Linux
+
+Run:
 
 ```bash
 sha256sum -c SHA256SUMS
 ```
 
-Run this command in the directory containing the downloaded files.
+All verified files should return `OK`.
 
-All required files should return `OK`.
+### macOS
 
-If verification fails, download the affected file again.
+Use a compatible `sha256sum` utility, or calculate an individual file hash with:
 
-Windows users can verify individual files using:
-
-```powershell
-Get-FileHash .\filename.zip -Algorithm SHA256
+```bash
+shasum -a 256 ROM_PACK.zip
 ```
 
-Compare the resulting hash with the value provided by the maintainer.
+### Windows
+
+Open PowerShell and run:
+
+```powershell
+Get-FileHash .\ROM_PACK.zip -Algorithm SHA256
+```
+
+Compare the resulting hash with the checksum provided by the maintainer.
+
+> [!WARNING]
+> If checksum verification fails, do not flash the affected file.
+>
+> Download it again and repeat verification.
 
 ---
 
 ## 6. Troubleshooting
 
-### Device not detected in Fastboot
+### Device Not Detected in Fastboot
 
-- Check the USB cable and USB port.
+If `fastboot devices` returns no device:
+
+- Check your USB cable and USB port.
 - Install the appropriate USB drivers on Windows.
 - Update Android SDK Platform-Tools.
 - Try another USB port.
+- Confirm that the device is in Fastboot mode.
 
-### ADB sideload fails
+### ADB Sideload Fails
+
+If the installation fails:
 
 - Make sure the device is in **Apply from ADB** mode.
-- Verify that the ZIP file is not corrupted.
-- Confirm that the ROM package matches your device.
+- Verify that the ROM ZIP is not corrupted.
+- Confirm that the package is intended for `onyx`.
 - Check the error message displayed in recovery.
+- Make sure the required images were flashed successfully.
 
-### Device stuck on the boot animation
+### Device Stuck on Boot Animation
+
+If the device does not finish booting:
 
 - Allow additional time for the first boot.
-- Verify that the required firmware version is installed.
-- Make sure all required images came from the same build.
-- If coming from another ROM, confirm that a clean installation was performed.
+- Verify that the recommended firmware is installed.
+- Confirm that all flashed images came from the same build.
+- If switching from another ROM, make sure a clean installation was performed.
 
 If the problem persists, collect recovery logs or relevant error messages before requesting support.
+
+### Recovery Does Not Boot
+
+If recovery fails to start:
+
+- Confirm that the correct recovery image was used.
+- Check whether all required images were flashed successfully.
+- Verify that the images belong to the same build.
+- Review any Fastboot errors.
+
+Do not flash unrelated recovery images without confirming compatibility.
 
 ---
 
 ## 7. Important Notes
 
-- This is an **uwuAOSP build**.
-- Only install packages intended for `onyx`.
-- Do not relock the bootloader while running an unofficial custom ROM.
-- Keep a backup of important data before updating.
+- This guide is intended for **uwuAOSP on POCO F7 / Redmi Turbo 4 Pro (onyx)**.
+- Only install packages specifically built for `onyx`.
+- Do not relock the bootloader while running an unsupported custom ROM.
+- Keep a backup of important data before installing updates.
 - Report reproducible issues with logs and clear reproduction steps.
 
 ---
 
-**Enjoy uwuAOSP on your device!**
+## Credits
+
+Special thanks to **AdarshGrewal** & all onyx maintainers for their contributions and support.
+
+---
+
+<p align="center">
+  <b>Enjoy uwuAOSP on your device!</b>
+</p>
+
+<p align="center">
+  Made with ❤️ for the Android community.
+</p>
+
+<p align="center">
+  <b>Powered by xiaoiaox</b>
+</p>
