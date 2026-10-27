@@ -43,11 +43,20 @@
 
 ## Changelog
 
-### Initial Release
+### 2027.10.17
+Initial Release
 
 - First build of uwuAOSP 17.140.
 - Added a custom boot animation. [Preview](#boot-animation)
 - Adjusted SELinux policies to improve compatibility with certain security checks.
+
+### 2027.10.27
+
+- Fixed the issue where the charging status could not be triggered under certain conditions
+- Fixed the issue where certain ringtones would experience frequency reduction and slow playback
+- Added NotGameTurbo
+- Added Dolby Audio/Dolby Vision support
+- The boot animation has been modified to better align with the overall theme Preview
 
 ---
 
