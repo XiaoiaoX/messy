@@ -86,19 +86,6 @@
 
 ---
 
-## Boot Animation
-
-<p align="center">
-  <img src="img/preview.gif" width="420" alt="uwuAOSP Boot Animation Preview">
-</p>
-
-<p align="center">
-  <i>Custom boot animation for uwuAOSP 17.140</i>
-</p>
-
----
-
-
 ---
 
 <h2 align="center">Credits</h2>
